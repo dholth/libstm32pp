@@ -39,9 +39,12 @@
 #define TIM1_REGS   ((tim::Registers*) tim::TIM1)
 #define TIM2_REGS   ((tim::Registers*) tim::TIM2)
 #define TIM3_REGS   ((tim::Registers*) tim::TIM3)
+#ifndef STM32F0XX
 #define TIM4_REGS   ((tim::Registers*) tim::TIM4)
 #define TIM5_REGS   ((tim::Registers*) tim::TIM5)
+#endif
 #define TIM6_REGS   ((tim::Registers*) tim::TIM6)
+#ifndef STM32F0XX
 #define TIM7_REGS   ((tim::Registers*) tim::TIM7)
 #define TIM8_REGS   ((tim::Registers*) tim::TIM8)
 #define TIM9_REGS   ((tim::Registers*) tim::TIM9)
@@ -49,6 +52,7 @@
 #define TIM11_REGS   ((tim::Registers*) tim::TIM11)
 #define TIM12_REGS   ((tim::Registers*) tim::TIM12)
 #define TIM13_REGS   ((tim::Registers*) tim::TIM13)
+#endif // not STM32F0XX
 #define TIM14_REGS   ((tim::Registers*) tim::TIM14)
 #ifdef VALUE_LINE
 #define TIM15_REGS  ((tim::_reserved::RegistersGP6*)tim::E::TIM15)
@@ -116,9 +120,12 @@ namespace tim {
 typedef tim::Functions<tim::TIM1> TIM1;
 typedef tim::Functions<tim::TIM2> TIM2;
 typedef tim::Functions<tim::TIM3> TIM3;
+#ifndef STM32F0XX
 typedef tim::Functions<tim::TIM4> TIM4;
 typedef tim::Functions<tim::TIM5> TIM5;
+#endif
 typedef tim::Functions<tim::TIM6> TIM6;
+#ifndef STM32F0XX
 typedef tim::Functions<tim::TIM7> TIM7;
 typedef tim::Functions<tim::TIM8> TIM8;
 typedef tim::Functions<tim::TIM9> TIM9;
@@ -126,6 +133,7 @@ typedef tim::Functions<tim::TIM10> TIM10;
 typedef tim::Functions<tim::TIM11> TIM11;
 typedef tim::Functions<tim::TIM12> TIM12;
 typedef tim::Functions<tim::TIM13> TIM13;
+#endif // STM32F0XX
 typedef tim::Functions<tim::TIM14> TIM14;
 #ifdef VALUE_LINE
 typedef tim::Functions<tim::TIM15> TIM15;

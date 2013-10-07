@@ -36,13 +36,13 @@ namespace clk {
    ****************************************************************************/
 
   /* Are you using an external high speed crystal, resonator or oscillator? ***/
-//#define USING_HSE_CRYSTAL
+// #define USING_HSE_CRYSTAL
   /******* Comment the macro above to answer no, otherwise your answer is yes */
 
 #ifndef USING_HSE_CRYSTAL
 
   /* Are you using a high speed external clock? *******************************/
-//#define USING_HSE_CLOCK
+// #define USING_HSE_CLOCK
   /******* Comment the macro above to answer no, otherwise your answer is yes */
 
 #endif // USING_HSE_CRYSTAL

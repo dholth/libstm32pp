@@ -57,9 +57,39 @@ namespace nvic {
       MASK = 0b1111
     };
 
+    // XXX why not derive from the interrupt array/addresses?
     enum E {
       WWDG = 0,
       PVD = 1,
+#if defined STM32F0XX
+      RTC = 2,
+      FLASH = 3,
+      RCC = 4,
+      EXTI0_1 = 5,
+      EXTI2_3 = 6,
+      EXTI14_15 = 7,
+      TSC = 8,
+      DMA_CH1 = 9,
+      DMA_CH2_3 = 10,
+      DMA_CH4_5 = 11,
+      ADC_COMP = 12,
+      TIM1_BRK_UP_TRG_COM = 13,
+      TIM1_CC = 14,
+      TIM2 = 15,
+      TIM3 = 16,
+      TIM6_DAC = 17,
+      TIM14 = 19,
+      TIM15 = 20,
+      TIM16 = 21,
+      TIM17 = 22,
+      I2C1 = 23,
+      I2C2 = 24,
+      SPI1 = 25,
+      SPI2 = 26,
+      USART1 = 27,
+      USART2 = 28,
+      CEC = 30
+#else
   #if defined VALUE_LINE || \
       defined STM32F2XX || \
       defined STM32F4XX
@@ -260,6 +290,7 @@ namespace nvic {
   #ifdef STM32F4XX
       FPU = 81
   #endif
+#endif // not STM32F0
     };
   }  // namespace irqn
 }  // namespace nvic

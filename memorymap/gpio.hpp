@@ -102,14 +102,17 @@ namespace gpio {
     };
     enum States {
       ANALOG_INPUT = 0,
+      // Output push-pull
       GP_PUSH_PULL_10MHZ = 1,
       GP_PUSH_PULL_2MHZ = 2,
       GP_PUSH_PULL_50MHZ = 3,
+      // Input... where is pup/down?
       FLOATING_INPUT = 4,
       GP_OPEN_DRAIN_10MHZ = 5,
       GP_OPEN_DRAIN_2MHZ = 6,
       GP_OPEN_DRAIN_50MHZ = 7,
       INPUT_PULL_X = 8,
+      // AF ~ Alternate function
       AF_PUSH_PULL_10MHZ = 9,
       AF_PUSH_PULL_2MHZ = 10,
       AF_PUSH_PULL_50MHZ = 11,

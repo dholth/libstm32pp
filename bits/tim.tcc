@@ -42,15 +42,18 @@ namespace tim {
       case TIM3:
         RCC::enableClocks<rcc::apb1enr::TIM3>();
         break;
+#ifndef STM32F0XX
       case TIM4:
         RCC::enableClocks<rcc::apb1enr::TIM4>();
         break;
       case TIM5:
         RCC::enableClocks<rcc::apb1enr::TIM5>();
         break;
+#endif
       case TIM6:
         RCC::enableClocks<rcc::apb1enr::TIM6>();
         break;
+#ifndef STM32F0XX
       case TIM7:
         RCC::enableClocks<rcc::apb1enr::TIM7>();
         break;
@@ -72,6 +75,7 @@ namespace tim {
       case TIM13:
         RCC::enableClocks<rcc::apb1enr::TIM13>();
         break;
+#endif
       case TIM14:
         RCC::enableClocks<rcc::apb1enr::TIM14>();
         break;
@@ -105,15 +109,18 @@ namespace tim {
       case TIM3:
         RCC::disableClocks<rcc::apb1enr::TIM3>();
         break;
+#ifndef STM32F0XX
       case TIM4:
         RCC::disableClocks<rcc::apb1enr::TIM4>();
         break;
       case TIM5:
         RCC::disableClocks<rcc::apb1enr::TIM5>();
         break;
+#endif
       case TIM6:
         RCC::disableClocks<rcc::apb1enr::TIM6>();
         break;
+#ifndef STM32F0XX
       case TIM7:
         RCC::disableClocks<rcc::apb1enr::TIM7>();
         break;
@@ -135,6 +142,7 @@ namespace tim {
       case TIM13:
         RCC::disableClocks<rcc::apb1enr::TIM13>();
         break;
+#endif // STM32F0XX
       case TIM14:
         RCC::disableClocks<rcc::apb1enr::TIM14>();
         break;
@@ -296,6 +304,12 @@ namespace tim {
   void Functions<T>::unmaskInterrupts()
   {
     switch (T) {
+#if defined STM32F0XX
+#pragma message "Only available for TIM6"
+    NVIC::enableIrq<
+            nvic::irqn::TIM6_DAC
+            >();
+#else
 #if defined XL_DENSITY || \
     defined STM32F2XX || \
     defined STM32F4XX
@@ -485,6 +499,7 @@ namespace tim {
         >();
         break;
 #endif // VALUE_LINE
+#endif // STM32F0XX
     }
   }
 
@@ -495,6 +510,9 @@ namespace tim {
   void Functions<T>::maskInterrupts()
   {
     switch (T) {
+#ifdef STM32F0XX
+#pragma message "Not implemented"
+#else
 
 #if defined XL_DENSITY || \
     defined STM32F2XX || \
@@ -639,6 +657,7 @@ namespace tim {
             "Don't use this function, use NVIC::disableIrq() instead.");
         break;
 #endif // VALUE_LINE
+#endif // STM32F0XX
     }
   }
 

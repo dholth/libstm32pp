@@ -25,6 +25,16 @@
 
 namespace tim {
   enum Address {
+#ifdef STM32F0XX
+	TIM1 = alias::APB2 + 0x2C00,
+	TIM2 = alias::APB1 + 0x0000,
+	TIM3 = alias::APB1 + 0x0400,
+	TIM6 = alias::APB1 + 0x1000,
+	TIM14 = alias::APB1 + 0x2000,
+	TIM15 = alias::APB2 + 0x4000,
+	TIM16 = alias::APB2 + 0x4400,
+	TIM17 = alias::APB2 + 0x4800
+#else
     TIM2 = alias::APB1 + 0x0000,
     TIM3 = alias::APB1 + 0x0400,
     TIM4 = alias::APB1 + 0x0800,
@@ -34,7 +44,7 @@ namespace tim {
     TIM12 = alias::APB1 + 0x1800,
     TIM13 = alias::APB1 + 0x1C00,
     TIM14 = alias::APB1 + 0x2000,
-    #ifdef STM32F1XX
+#ifdef STM32F1XX
     TIM1 = alias::APB2 + 0x2C00,
     TIM8 = alias::APB2 + 0x3400,
     TIM9 = alias::APB2 + 0x4C00,
@@ -52,6 +62,7 @@ namespace tim {
   TIM16 = alias::APB2 + 0x4400,
   TIM17 = alias::APB2 + 0x4800,
 #endif
+#endif // STM32F0XX
   };
 
   struct Registers {

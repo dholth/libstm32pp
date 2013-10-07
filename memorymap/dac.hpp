@@ -61,12 +61,98 @@ namespace dac {
     enum {
       OFFSET = 0x00
     };
+    // enable. configure before enable.
+    namespace en1 {
+      enum {
+        POSITION = 0,
+        MASK = 1 << POSITION
+      };
+      enum States {
+        DISABLED = 0 << POSITION,
+        ENABLED = 1 << POSITION
+      };
+    }
+    // XXX some of this is STM32F0
+    // (only one enable etc.)
+    // "buffer off" ENABLED == off
+    namespace boff1 {
+      enum {
+        POSITION = 1,
+        MASK = 1 << POSITION
+      };
+      enum States {
+        DISABLED = 0 << POSITION,
+        ENABLED = 1 << POSITION
+      };
+    }
+    // trigger enable
+    namespace ten1 {
+      enum {
+        POSITION = 2,
+        MASK = 1 << POSITION
+      };
+      enum States {
+        DISABLED = 0 << POSITION,
+        ENABLED = 1 << POSITION
+      };
+    }
+    // trigger select
+    namespace tsel1 {
+      enum {
+        POSITION = 3,
+        MASK = 0b111 << POSITION
+      };
+      enum States {
+        TIM6 = 0 << POSITION,
+        TIM8 = 1 << POSITION,
+        TIM7 = 2 << POSITION,
+        TIM5 = 3 << POSITION,
+        TIM2 = 4 << POSITION,
+        TIM4 = 5 << POSITION,
+        EXT_LINE9 = 6 << POSITION,
+        SWTRIGR = 7 << POSITION
+      };
+    }
+    // dma enable
+    namespace dmaen1 {
+      enum {
+        POSITION = 12,
+        MASK = 1 << POSITION
+      };
+      enum States {
+        DISABLED = 0 << POSITION,
+        ENABLED = 1 << POSITION
+      };
+    }
+    // dma underrun interrupt enable
+    namespace dmaudrie1 {
+      enum {
+        POSITION = 13,
+        MASK = 1 << POSITION
+      };
+      enum States {
+        DISABLED = 0 << POSITION,
+        ENABLED = 1 << POSITION
+      };
+    }
   }  // namespace cr
 
   namespace swtrigr {
     enum {
       OFFSET = 0x04
     };
+    // write this bit to trigger a conversion if swtrigr is selected in cr::tsel
+    // automatically cleared by hardware.
+    namespace en {
+      enum {
+        POSITION = 0,
+        MASK = 1 << POSITION
+      };
+      enum States {
+        DISABLED = 0 << POSITION,
+        ENABLED = 1 << POSITION
+      };
+    }
   }  // namespace swtrigr
 
   namespace sr {

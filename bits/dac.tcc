@@ -21,6 +21,7 @@
 
 #pragma once
 
+#include "bitband.hpp"
 #include "../include/peripheral/rcc.hpp"
 
 namespace dac {
@@ -32,5 +33,24 @@ namespace dac {
   void Functions::disableClock()
   {
     RCC::disableClocks<rcc::apb1enr::DAC>();
+  }
+
+  /**
+   * @brief Turns on the DAC peripheral.
+   * Some configuration changes will only work
+   * when the DAC is disabled.
+   */
+  void Functions::enablePeripheral() {
+
+  }
+  /**
+   * @brief Turns on the DAC peripheral.
+   */
+  void Functions::disablePeripheral() {
+
+  }
+
+  bool Functions::isEnabled() {
+    return false;
   }
 } // namespace dac

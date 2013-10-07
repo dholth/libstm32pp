@@ -28,13 +28,13 @@
  ******************************************************************************/
 
 /** STM32F1 Device? ***********************************************************/
-//#define STM32F1XX
+#define STM32F1XX
 /********* Comment the macro above to answer no, otherwise your answer is yes */
 
 #ifdef STM32F1XX
 
 /** Value Line Device? ********************************************************/
-//#define VALUE_LINE
+#define VALUE_LINE
 /********* Comment the macro above to answer no, otherwise your answer is yes */
 
 #ifndef VALUE_LINE
